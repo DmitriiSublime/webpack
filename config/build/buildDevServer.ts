@@ -6,6 +6,9 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     //Для запуска сервера, чтобы видеть сборку в режиме online + port свой или рандомный
     return {
         port: options.port ?? 5000,
-        open: true
+        open: true,
+        //Для роутинга
+        //если раздавать статику через nginx, то надо делать проксирование на index.html
+        historyApiFallback: true
     }
 }

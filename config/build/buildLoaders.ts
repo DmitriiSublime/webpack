@@ -6,6 +6,15 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     const isDev = options.mode === 'development';
     const isProd = options.mode === 'production';
 
+    const cssLoaderWithModules = {
+        loader: "css-loader",
+        options: {
+            modules: {
+                localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
+            },
+        },
+    };
+
     const scssLoader = {
         //Добавляем стили из css
         test: /\.s[ac]ss$/i,
@@ -13,7 +22,7 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
             // Creates `style` nodes from JS strings
             isDev ? "style-loader" : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
-            "css-loader",
+            cssLoaderWithModules,
             // Compiles Sass to CSS
             "sass-loader",
         ],
