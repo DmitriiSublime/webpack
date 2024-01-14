@@ -1,8 +1,8 @@
 import {createRoot} from "react-dom/client";
-import {App} from "./components/App";
+import {App} from "@/components/App/App";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import {LazyAbout} from "./pages/About/About.lazy";
-import {Shop} from "./pages/Shop";
+import {LazyAbout} from "@/pages/About/About.lazy";
+import {Shop} from "@/pages/Shop";
 import {Suspense} from "react";
 
 
@@ -13,8 +13,6 @@ if(!root) {
 }
 
 const container = createRoot(root);
-
-
 
 const router = createBrowserRouter([
     {
