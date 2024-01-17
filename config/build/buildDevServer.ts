@@ -9,6 +9,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         open: true,
         //Для роутинга
         //если раздавать статику через nginx, то надо делать проксирование на index.html
-        historyApiFallback: true
+        historyApiFallback: true,
+        hot: true
     }
 }
